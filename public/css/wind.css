@@ -1,0 +1,26 @@
+/* height */
+.h-screen { height: 100vh; }
+
+/* width */
+.w-full { width: 100%; }
+
+/* margin */
+.mx-15pct { margin: 0 15vw; }
+.mx-20pct { margin: 0 20vw; }
+.ml-20pct { margin-left: 20vw; }
+.mr-20pct { margin-right: 20vw; }
+
+/* border */
+.border-black { border: 1px solid black; }
+
+/* flexbox */
+.flex { display: flex; }
+.justify-center { justify-content: center; }
+.items-center { align-items: center; }
+
+/* flex item */
+.flex-1 { flex: 1 1 0% }
+.flex-8 { flex: 8 1 0% }
+.flex-15 { flex: 15 1 0%; }
+.flex-70 { flex: 70 1 0%; }
+
