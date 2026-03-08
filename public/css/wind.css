@@ -1,3 +1,7 @@
+/* -------------------------------------------------------------------------- */
+/* Light Mode                                                                 */
+/* -------------------------------------------------------------------------- */
+
 /* height */
 .h-screen { height: 100vh; }
 .h-full { height: 100%; }
@@ -8,6 +12,7 @@
 .w-1 { width: 10%; }
 
 /* margin */
+.m-5px { margin: 5px; }
 .m-10px { margin: 10px; }
 
 .mx-15pct { margin: 0 15vw; }
@@ -17,7 +22,9 @@
 
 /* border */
 .border-black { border: 1px solid black; }
+.border-white { border: 1px solid white; }
 .border-red { border: 1px solid red; }
+.radius-5 { border-radius: 12px; }
 
 /* text */
 .text-md { font-size: 1.25rem; }
@@ -40,10 +47,30 @@
 .grid { display: grid; }
 .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr));; }
 
+/* object fit */
+.object-contain { object-fit: contain; }
+.object-cover { object-fit: cover; }
+.object-fill { object-fit: fill; }
+.object-none { object-fit: none; }
+.object-scale-down { object-fit: scale-down; }
 
+
+/* component thumbnail */
 .thumbnail {
-	width:  100px;
-	height: 170px;
+	width:  70px;
+	height: 100px;
 	margin: 10px;
 }
+
+
+
+/* -------------------------------------------------------------------------- */
+/* Dark Mode                                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* background */
+.dark\:bg-black { background-color: black; }
+.dark\:bg-gray { background-color: gray; }
+
+.dark\:text-white { color: white; }
 
