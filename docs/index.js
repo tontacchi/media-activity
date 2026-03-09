@@ -102,7 +102,7 @@ function unmarshalJSON(path, container) {
 	})
 	.then((entries) => {
 		entries.forEach((entry) => {
-			const card = Card(entry.title, entry.datetime, entry.activity);
+			const card = Card(entry.Title, entry.Datetime, entry.Activity);
 			container.appendChild(card);
 		});
 	});
