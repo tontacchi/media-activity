@@ -3,7 +3,6 @@ const $ = (id) => { return document.getElementById(id); };
 const newElem = (tag) => { return document.createElement(tag); };
 const listen = (node, action, func) => { node.addEventListener(action, func); };
 
-
 // hooks
 const activityContainer = $("activity");
 
@@ -14,10 +13,7 @@ function main() {
 	const activityBox = month.children[1];
 
 	activityContainer.appendChild(month);
-
-	activityBox.appendChild(Card("Super Mario Odyssey", "6 hours ago", "Played"));
-	activityBox.appendChild(Card("Frieren S2", "8 hours ago", "Watched episode 2 of"));
-	activityBox.appendChild(Card("Frieren S2", "8 hours ago", "Watched episode 1 of"));
+	unmarshalJSON("../data/2026-03.json", activityBox);
 }
 
 
@@ -94,6 +90,17 @@ function makeThumbnailPath(title) {
 
 	path += ".jpg";
 	return path;
+}
+
+function unmarshalJSON(path, container) {
+	fetch(path)
+	.then((result) => { return result.json(); })
+	.then((entries) => {
+		entries.forEach((entry) => {
+			const card = Card(entry.title, entry.datetime, entry.activity);
+			container.appendChild(card);
+		});
+	});
 }
 
 
