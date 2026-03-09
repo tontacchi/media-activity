@@ -1,6 +1,7 @@
 // DOM Manipulation
 const $ = (id) => { return document.getElementById(id); };
 const newElem = (tag) => { return document.createElement(tag); };
+const listen = (node, action, func) => { node.addEventListener(action, func); };
 
 
 // hooks
@@ -9,12 +10,14 @@ const activityContainer = $("activity");
 
 // Main function
 function main() {
-	let month = Month("January");
+	const month = Month("January");
+	const activityBox = month.children[1];
+
 	activityContainer.appendChild(month);
 
-	const activityBox = month.children[1];
 	activityBox.appendChild(Card("Super Mario Odyssey", "6 hours ago", "Played"));
-	activityBox.appendChild(Card("Frieren S2", "8 hours ago", "Watched ep2 of"))
+	activityBox.appendChild(Card("Frieren S2", "8 hours ago", "Watched episode 2 of"));
+	activityBox.appendChild(Card("Frieren S2", "8 hours ago", "Watched episode 1 of"));
 }
 
 
@@ -59,12 +62,12 @@ function Card(title, timeMsg, activity) {
 	center.classList.add("items-center");
 
 	const p = newElem("p");
-	p.classList.add("m-10px");
+	p.classList.add("m-10px", "wrap-anywhere");
 	p.textContent = activity + " " + title;
 
 	const timeBox = newElem("div");
 	const time = newElem("p");
-	time.classList.add("my-10px");
+	time.classList.add("m-10px");
 	// time.classList.add("activity-time");
 	time.textContent = timeMsg;
 
@@ -95,5 +98,5 @@ function makeThumbnailPath(title) {
 
 
 // Entry
-main();
+listen(window, "load", () => { main(); });
 
