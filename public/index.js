@@ -9,12 +9,35 @@ const activityContainer = $("activity");
 
 // Main function
 function main() {
-	activityContainer.appendChild(Card("Super Mario Odyssey", "6 hours ago", "Played"));
+	let month = Month("January");
+	activityContainer.appendChild(month);
+
+	const activityBox = month.children[1];
+	activityBox.appendChild(Card("Super Mario Odyssey", "6 hours ago", "Played"));
+	activityBox.appendChild(Card("Frieren S2", "8 hours ago", "Watched ep2 of"))
 }
 
 
 // Components
+function Month(month) {
+	const monthContainer = newElem("div");
+
+	const header = newElem("h2");
+	header.classList.add("text-md");
+	header.textContent = month;
+
+	const grid = newElem("div");
+	grid.classList.add("grid");
+	grid.classList.add("grid-cols-2");
+
+	monthContainer.appendChild(header);
+	monthContainer.appendChild(grid);
+
+	return monthContainer;
+}
+
 function Card(title, timeMsg, activity) {
+	// create nested DOM nodes
 	const card = newElem("div");
 	card.classList.add("flex");
 	card.classList.add("border-red");
@@ -23,7 +46,12 @@ function Card(title, timeMsg, activity) {
 
 	const thumbnail = newElem("div");
 	thumbnail.classList.add("thumbnail");
-	thumbnail.classList.add("border-white");
+
+	// special handling for image path
+	const image = newElem("img");
+	image.classList.add("w-full", "h-full", "object-cover");
+	image.setAttribute("src", makeThumbnailPath(title));
+	image.setAttribute("alt", title);
 
 	const center = newElem("div");
 	center.classList.add("flex-1");
@@ -34,41 +62,36 @@ function Card(title, timeMsg, activity) {
 	p.classList.add("m-10px");
 	p.textContent = activity + " " + title;
 
-	const time = newElem("div");
-	time.classList.add("m-10px");
+	const timeBox = newElem("div");
+	const time = newElem("p");
+	time.classList.add("my-10px");
+	// time.classList.add("activity-time");
 	time.textContent = timeMsg;
 
+
+	// stitch together the Card component
+	thumbnail.appendChild(image);
 	center.appendChild(p);
+	timeBox.appendChild(time);
 
 	card.appendChild(thumbnail);
 	card.appendChild(center);
-	card.appendChild(time);
+	card.appendChild(timeBox);
 
-	return card
+	return card;
 }
 
-// fetch("../data/2026-03.json")
-//   .then(res => res.json())
-//   .then(entries => {
-//     const container = $("activity");
-//
-//     entries.forEach(entry => {
-//       const card = document.createElement("div");
-//       card.className = "activity-card";
-//
-//       card.innerHTML = `
-//         <div class="activity-message">
-//           <span class="activity-text">${entry.activity}</span>
-//           <span class="activity-title">${entry.title}</span>
-//         </div>
-//         <div class="activity-time">
-//           ${new Date(entry.datetime).toLocaleString()}
-//         </div>
-//       `;
-//
-//       container.appendChild(card);
-//     });
-//   });
+
+// helper functions
+function makeThumbnailPath(title) {
+	let path = "./assets/";
+
+	titleParts = title.toLowerCase().split(" ");
+	path += titleParts.join("-")
+
+	path += ".jpg";
+	return path;
+}
 
 
 // Entry

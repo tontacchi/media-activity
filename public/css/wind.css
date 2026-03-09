@@ -17,6 +17,7 @@
 
 .mx-15pct { margin: 0 15vw; }
 .mx-20pct { margin: 0 20vw; }
+.my-10px { margin: 10px 0 10px 0; }
 .ml-20pct { margin-left: 20vw; }
 .mr-20pct { margin-right: 20vw; }
 
@@ -60,8 +61,24 @@
 	width:  70px;
 	height: 100px;
 	margin: 10px;
+	flex: 0 0 70px;
 }
 
+/* .thumbnail { */
+/* 	width: 70px; */
+/* 	height: 100px; */
+/* 	flex: 0 0 70px; */
+/* 	overflow: hidden; */
+/* 	border-radius: 12px; */
+/* } */
+
+
+/* temp fix */
+/* .activity-time { */
+/* 	white-space: nowrap; */
+/* 	flex-shrink: 0; */
+/* 	margin-left: 10px; */
+/* } */
 
 
 /* -------------------------------------------------------------------------- */
