@@ -13,7 +13,7 @@ function main() {
 	const activityBox = month.children[1];
 
 	activityContainer.appendChild(month);
-	unmarshalJSON("https://tontacchi.github.io/media-activity/data/2026-03.json", activityBox);
+	unmarshalJSON("./data/2026-03.json", activityBox);
 }
 
 
