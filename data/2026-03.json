@@ -1,17 +1,22 @@
 [
-	{
-		"title": "Super Mario Odyssey",
-		"datetime": "2026-03-05T12:30:00Z",
-		"activity": "Turned into a slab of meat in"
-	},
-	{
-		"title": "Super Mario Odyssey",
-		"datetime": "2026-03-05T12:30:00Z",
-		"activity": "Launched"
-	},
-	{
-		"title": "Super Mario Odyssey",
-		"datetime": "2026-03-05T12:30:00Z",
-		"activity": "Bounced while playing mario kart in"
-	}
+    {
+        "Title": "Sousou no Frieren S2\n",
+        "Datetime": "",
+        "Activity": "Watched episode 6 - 7\n"
+    },
+    {
+        "Title": "Super Mario Odyssey",
+        "Datetime": "2026-03-05T12:30:00Z",
+        "Activity": "Turned into a slab of meat in"
+    },
+    {
+        "Title": "Super Mario Odyssey",
+        "Datetime": "2026-03-05T12:30:00Z",
+        "Activity": "Launched"
+    },
+    {
+        "Title": "Super Mario Odyssey",
+        "Datetime": "2026-03-05T12:30:00Z",
+        "Activity": "Bounced while playing mario kart in"
+    }
 ]

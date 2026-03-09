@@ -1,8 +1,7 @@
 package main
 
 import (
-	// "bufio"
-	// "bytes"
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -19,19 +18,27 @@ const WritePerms = 0644
 
 func main() {
 	const path = "./data/2026-03.json"
+	entries := prependEntry(makeEntry(), readJSON(path))	
 
-	entries := readJSON(path)
-
-	newEntry := Entry{
-		Title:    "Sousou no Frieren S2",
-		Datetime: "2026-03-08-18-21-00",
-		Activity: "Watched episode 6 - 7 of",
-	}
-	entries = prependEntry(newEntry, entries)
-	
 	writeEntries(entries, path)
 }
 
+
+func makeEntry() Entry {
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Title: ")
+	title, _ := reader.ReadString('\n')
+
+	fmt.Print("Activity: ")
+	activity, _ := reader.ReadString('\n')
+
+	return Entry{
+		Title: title,
+		Datetime: "",
+		Activity: activity,
+	}
+}
 
 func readJSON(path string) []Entry {
 	fp, err := os.ReadFile(path)
@@ -58,6 +65,6 @@ func writeEntries(entries []Entry, path string) {
 
 	fmt.Println("writeEntries: writing to", path)
 	fmt.Println(string(jsonStr))
-	// _ = os.WriteFile(path, jsonStr, WritePerms)
+	_ = os.WriteFile(path, jsonStr, WritePerms)
 }
 
