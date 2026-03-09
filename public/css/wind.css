@@ -1,8 +1,9 @@
 /* Tailwind font */
-* {
+html, body {
+	/* font-family: Inter, sans-serif; */
 	font-family: Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+	/* font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; */
 }
-
 
 
 /* -------------------------------------------------------------------------- */
@@ -36,6 +37,7 @@
 
 /* text */
 .text-md { font-size: 1.25rem; }
+.text-lg { font-size: 1.50rem; }
 
 /* flexbox */
 .flex { display: flex; }
