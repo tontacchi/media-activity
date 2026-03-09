@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type Entry struct {
@@ -29,9 +30,11 @@ func makeEntry() Entry {
 
 	fmt.Print("Title: ")
 	title, _ := reader.ReadString('\n')
+	title = strings.TrimSpace(title)
 
 	fmt.Print("Activity: ")
 	activity, _ := reader.ReadString('\n')
+	activity = strings.TrimSpace(activity)
 
 	return Entry{
 		Title: title,
