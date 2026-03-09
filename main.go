@@ -18,7 +18,7 @@ const WritePerms = 0644
 
 
 func main() {
-	const path = "./data/2026-03.json"
+	const path = "./docs/data/2026-03.json"
 	entries := prependEntry(makeEntry(), readJSON(path))	
 
 	writeEntries(entries, path)
