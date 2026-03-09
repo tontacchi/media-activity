@@ -85,7 +85,11 @@ function Card(title, timeMsg, activity) {
 function makeThumbnailPath(title) {
 	let path = "./assets/";
 
+	title = title.replaceAll("-", " ")
 	titleParts = title.toLowerCase().split(" ");
+	titleParts = titleParts.map((str) => { return str.replace(/\p{P}/gu, "") });
+
+	console.log(titleParts);
 	path += titleParts.join("-")
 
 	path += ".jpg";
