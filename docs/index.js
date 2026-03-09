@@ -94,7 +94,12 @@ function makeThumbnailPath(title) {
 
 function unmarshalJSON(path, container) {
 	fetch(path)
-	.then((result) => { return result.json(); })
+	.then((result) => {
+		const jsonResult = result.json();
+		console.log("json result:", jsonResult);
+
+		return jsonResult;
+	})
 	.then((entries) => {
 		entries.forEach((entry) => {
 			const card = Card(entry.title, entry.datetime, entry.activity);
