@@ -57,14 +57,18 @@ function Card(title, timeMsg, activity) {
 	center.classList.add("flex");
 	center.classList.add("items-center");
 
+	const a = newElem("a");
+	a.setAttribute("href", "#");
+	a.classList.add("dark:text-mint");
+	a.textContent = title;
+
 	const p = newElem("p");
 	p.classList.add("m-10px", "wrap-anywhere");
-	p.textContent = activity + " " + title;
+	p.append(activity, " ", a);
 
 	const timeBox = newElem("div");
 	const time = newElem("p");
 	time.classList.add("m-10px");
-	// time.classList.add("activity-time");
 	time.textContent = timeMsg;
 
 
