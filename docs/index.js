@@ -39,7 +39,7 @@ function Card(title, timeMsg, activity) {
 	// create nested DOM nodes
 	const card = newElem("div");
 	card.classList.add("flex");
-	card.classList.add("border-red");
+	// card.classList.add("border-red");
 	card.classList.add("radius-5");
 	card.classList.add("m-10px");
 
