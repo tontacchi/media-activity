@@ -5,6 +5,11 @@ html, body {
 	/* font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; */
 }
 
+body {
+	background-image: url("../assets/columbina-sandrone.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
 
 /* -------------------------------------------------------------------------- */
 /* Light Mode                                                                 */
@@ -89,4 +94,32 @@ a.text-mint { color: #98FF98; }
 
 .dark\:text-white { color: white; }
 .dark\:text-mint { color: #98FF98; }
+
+
+
+/* gradients */
+:root {
+	--gradient-from: transparent;
+	--gradient-via:  transparent;
+	--gradient-to:   transparent;
+}
+
+.gradient-r  { background-image: linear-gradient(to right, var(--gradient-from), var(--gradient-via), var(--gradient-to)); }
+.gradient-br { background-image: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-via), var(--gradient-to)); }
+.gradient-tr { background-image: linear-gradient(to top right, var(--gradient-from), var(--gradient-via), var(--gradient-to)); }
+.gradient-l  { background-image: linear-gradient(to left, var(--gradient-from), var(--gradient-via), var(--gradient-to)); }
+.gradient-bl { background-image: linear-gradient(to bottom left, var(--gradient-from), var(--gradient-via), var(--gradient-to)); }
+.gradient-tl { background-image: linear-gradient(to top left, var(--gradient-from), var(--gradient-via), var(--gradient-to)); }
+
+.gradient-primary   { --gradient-from: #3b82f6; }
+.gradient-secondary { --gradient-via:  #7928ca; }
+.gradient-accent    { --gradient-to:   #79ffe1; }
+
+
+
+.overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0,0,0,0.5);
+}
 

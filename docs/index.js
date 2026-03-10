@@ -43,6 +43,9 @@ function Card(title, timeMsg, activity) {
 	card.classList.add("radius-5");
 	card.classList.add("m-10px");
 
+	// frosted glass cards
+	card.setAttribute("style", "background: rgb(0 0 0 / 0.7);");
+
 	const thumbnail = newElem("div");
 	thumbnail.classList.add("thumbnail");
 
@@ -72,7 +75,7 @@ function Card(title, timeMsg, activity) {
 	time.textContent = timeMsg;
 
 
-	// stitch together the Card component
+	// stitch together the Card component	
 	thumbnail.appendChild(image);
 	center.appendChild(p);
 	timeBox.appendChild(time);
