@@ -4,12 +4,12 @@ const newElem = (tag) => { return document.createElement(tag); };
 const listen = (node, action, func) => { node.addEventListener(action, func); };
 
 // hooks
-const activityContainer = $("activity");
+const activityContainer = $("2026-box");
 
 
 // Main function
 function main() {
-	const month = Month("January");
+	const month = Month("March");
 	const activityBox = month.children[1];
 
 	activityContainer.appendChild(month);
