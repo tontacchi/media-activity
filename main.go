@@ -9,10 +9,11 @@ import (
 )
 
 type Entry struct {
-	Title    string `json: "title"`
-	Datetime string `json: "datetime"`
-	Activity string `json: "activity"`
+	Title    string `json:"title"`
+	Datetime string `json:"datetime"`
+	Activity string `json:"activity"`
 }
+
 
 const WritePerms = 0644
 
