@@ -36,6 +36,8 @@ function Month(month) {
 }
 
 function Card(title, timeMsg, activity) {
+	console.log("[ DEBUG ]", title, timeMsg, activity)
+
 	// create nested DOM nodes
 	const card = newElem("div");
 	card.classList.add("flex");
@@ -144,7 +146,7 @@ function unmarshalJSON(path, container) {
 	})
 	.then((entries) => {
 		entries.forEach((entry) => {
-			const card = Card(entry.Title, entry.Datetime, entry.Activity);
+			const card = Card(entry.title, entry.datetime, entry.activity);
 			container.appendChild(card);
 		});
 	});
