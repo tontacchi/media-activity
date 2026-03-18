@@ -46,6 +46,9 @@ function Card(title, timeMsg, activity) {
 	// frosted glass cards
 	card.setAttribute("style", "background: rgb(0 0 0 / 0.7);");
 
+	const thumbnailHyperlink = newElem("a");
+	thumbnailHyperlink.setAttribute("href", makePagePath(title));
+
 	const thumbnail = newElem("div");
 	thumbnail.classList.add("thumbnail");
 
@@ -61,7 +64,7 @@ function Card(title, timeMsg, activity) {
 	center.classList.add("items-center");
 
 	const a = newElem("a");
-	a.setAttribute("href", "#");
+	a.setAttribute("href", makePagePath(title));
 	a.classList.add("dark:text-mint");
 	a.textContent = title;
 
@@ -75,8 +78,10 @@ function Card(title, timeMsg, activity) {
 	time.textContent = timeMsg;
 
 
-	// stitch together the Card component	
-	thumbnail.appendChild(image);
+	// stitch together the Card component
+	thumbnail.appendChild(thumbnailHyperlink);
+	thumbnailHyperlink.appendChild(image);
+
 	center.appendChild(p);
 	timeBox.appendChild(time);
 
@@ -102,6 +107,21 @@ function makeThumbnailPath(title) {
 	path += titleParts.join("-")
 
 	path += ".jpg";
+	return path;
+}
+
+function makePagePath(title) {
+	let path = "./pages/";
+
+	titleParts = normalizeTitle(title)
+		.split(" ")
+		.map((str) => {
+			return str.replace(/\p{P}/gu, "")
+		});
+
+	console.log(titleParts);
+	path += titleParts.join("-")
+
 	return path;
 }
 
