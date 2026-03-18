@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"media/internal/entry"
 )
 
 type Entry struct {
@@ -20,6 +22,7 @@ const WritePerms = 0644
 
 func main() {
 	const path = "./docs/data/2026-03.json"
+
 	entries := prependEntry(makeEntry(), readJSON(path))	
 
 	writeEntries(entries, path)
@@ -39,7 +42,7 @@ func makeEntry() Entry {
 
 	return Entry{
 		Title: title,
-		Datetime: "",
+		Datetime: entry.MakeTimestamp(),
 		Activity: activity,
 	}
 }
