@@ -10,7 +10,7 @@ func MakeTimestamp() string {
 
 	// format: yyyy-mm-dd-hh
 	timestamp := fmt.Sprintf(
-		"%d-%d-%d-%d-%d-%d",
+		"%04d-%02d-%02d-%02d-%02d-%02d",
 		now.Year(),
 		int(now.Month()),
 		now.Day(),
