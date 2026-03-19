@@ -41,11 +41,17 @@ html, body {
 .radius-5 { border-radius: 12px; }
 
 /* text size */
-.text-md { font-size: 1.25rem; }
-.text-lg { font-size: 1.50rem; }
+.text-xs { font-size: 0.75rem; line-height: calc(1 / 0.75); }
+.text-sm { font-size: 0.875rem; line-height: calc(1.25 / 0.875); }
+.text-md { font-size: 1rem; line-height: calc(1.5 / 1); }
+.text-lg { font-size: 1.125rem; line-height: calc(1.75 / 1.125); }
 
 /* text color */
 a.text-mint { color: #98FF98; }
+
+/* .text-slate-300 { color: oklch(86.9% 0.022 252.894); } */
+.text-slate-400 { color: oklch(70.4% 0.04 256.788); }
+/* .text-slate-500 { color: oklch(55.4% 0.046 257.417); } */
 
 /* flexbox */
 .flex { display: flex; }

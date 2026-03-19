@@ -80,7 +80,7 @@ function Card(title, timestamp, activity) {
 	a.textContent = title;
 
 	const p = newElem("p");
-	p.classList.add("m-10px", "wrap-anywhere");
+	p.classList.add("m-10px", "wrap-anywhere", "text-md");
 	p.append(activity, " ", a);
 
 
@@ -90,7 +90,7 @@ function Card(title, timestamp, activity) {
 	const timeBox = newElem("div");
 
 	const time = newElem("p");
-	time.classList.add("m-10px");
+	time.classList.add("m-10px", "text-xs", "text-slate-400");
 	time.textContent = timeAgoMsg;
 	time.setAttribute("title", timestamp);
 
