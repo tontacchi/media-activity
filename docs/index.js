@@ -6,8 +6,11 @@ const listen = (node, action, func) => { node.addEventListener(action, func); };
 // hooks
 const activityContainer = $("2026-box");
 
-const now = new Date();
+// constants: title cache
 const cache = new Map();
+
+// constants: time
+const now = new Date();
 
 // Main function
 function main() {
@@ -17,7 +20,7 @@ function main() {
 	activityContainer.appendChild(month);
 	unmarshalJSON("./data/2026-03.json", activityBox);
 
-	console.log("[ DEBUG ] cache:", cache);
+	// console.log("[ DEBUG ] cache:", cache);
 }
 
 
@@ -40,7 +43,7 @@ function Month(month) {
 }
 
 function Card(title, timeMsg, activity) {
-	console.log("[ DEBUG ]", title, timeMsg, activity)
+	// console.log("[ DEBUG ]", title, timeMsg, activity)
 
 	// create nested DOM nodes
 	const card = newElem("div");
@@ -138,9 +141,40 @@ function normalizeTitle(title) {
 
 // helper functions (time)
 function makeTimeString(timeStr) {
-	console.log(now.toString());
-	console.log(timeStr);
-	return timeStr;
+	return timeAgo(timeStr);
+}
+
+function timeAgo(timestamp) {
+	// normalize: yyyy-mm-dd-hh-mm-ss → ISO
+	const iso = timestamp.replace(
+		/^(\d{4}-\d{2}-\d{2})-(\d{2})-(\d{2})-(\d{2})$/,
+		"$1T$2:$3:$4"
+	);
+
+	const past = new Date(iso);
+	// const now = new Date();
+
+	const diffMs = now - past;
+	if (isNaN(diffMs)) return "invalid date";
+
+	const seconds = Math.floor(diffMs / 1000);
+
+	if (seconds < 60) return "just now";
+
+	const minutes = Math.floor(seconds / 60);
+	if (minutes < 60) return `${minutes} minute${minutes !== 1 ? "s" : ""} ago`;
+
+	const hours = Math.floor(minutes / 60);
+	if (hours < 24) return `${hours} hour${hours !== 1 ? "s" : ""} ago`;
+
+	const days = Math.floor(hours / 24);
+	if (days < 30) return `${days} day${days !== 1 ? "s" : ""} ago`;
+
+	const months = Math.floor(days / 30);
+	if (months < 12) return `${months} month${months !== 1 ? "s" : ""} ago`;
+
+	const years = Math.floor(months / 12);
+	return `${years} year${years !== 1 ? "s" : ""} ago`;
 }
 
 
@@ -149,7 +183,6 @@ function unmarshalJSON(path, container) {
 	fetch(path)
 	.then((result) => {
 		const jsonResult = result.json();
-
 		return jsonResult;
 	})
 	.then((entries) => {
