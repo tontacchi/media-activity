@@ -42,30 +42,33 @@ function Month(month) {
 	return monthContainer;
 }
 
-function Card(title, timeMsg, activity) {
-	// console.log("[ DEBUG ]", title, timeMsg, activity)
+function Card(title, timestamp, activity) {
+	// console.log("[ DEBUG ]", title, timestamp, activity)
 
-	// create nested DOM nodes
+	// outer shell card
 	const card = newElem("div");
 	card.classList.add("flex");
 	card.classList.add("radius-5");
 	card.classList.add("m-10px");
 
 	// frosted glass cards
-	card.setAttribute("style", "background: rgb(0 0 0 / 0.7);");
+	// card.setAttribute("style", "background: rgb(0 0 0 / 0.7);");
+
+
+	// thumbnail section 
+	const thumbnail = newElem("div");
+	thumbnail.classList.add("thumbnail");
 
 	const thumbnailHyperlink = newElem("a");
 	thumbnailHyperlink.setAttribute("href", makePagePath(title));
 
-	const thumbnail = newElem("div");
-	thumbnail.classList.add("thumbnail");
-
-	// special handling for image path
 	const image = newElem("img");
 	image.classList.add("w-full", "h-full", "object-cover");
 	image.setAttribute("src", makeThumbnailPath(title));
 	image.setAttribute("alt", title);
 
+
+	// text description body section
 	const center = newElem("div");
 	center.classList.add("flex-1");
 	center.classList.add("flex");
@@ -80,17 +83,24 @@ function Card(title, timeMsg, activity) {
 	p.classList.add("m-10px", "wrap-anywhere");
 	p.append(activity, " ", a);
 
+
+	// time section
+	const timeAgoMsg = makeTimeString(timestamp);
+
 	const timeBox = newElem("div");
+
 	const time = newElem("p");
 	time.classList.add("m-10px");
-	time.textContent = timeMsg;
+	time.textContent = timeAgoMsg;
+	time.setAttribute("title", timestamp);
 
 
-	// stitch together the Card component
+	// assemble Card component
 	thumbnail.appendChild(thumbnailHyperlink);
 	thumbnailHyperlink.appendChild(image);
 
 	center.appendChild(p);
+
 	timeBox.appendChild(time);
 
 	card.appendChild(thumbnail);
@@ -145,36 +155,43 @@ function makeTimeString(timeStr) {
 }
 
 function timeAgo(timestamp) {
-	// normalize: yyyy-mm-dd-hh-mm-ss → ISO
+	// normalize: yyyy-mm-dd-hh-mm-ss → ISO (UTC)
 	const iso = timestamp.replace(
 		/^(\d{4}-\d{2}-\d{2})-(\d{2})-(\d{2})-(\d{2})$/,
-		"$1T$2:$3:$4"
+		"$1T$2:$3:$4Z"
 	);
 
 	const past = new Date(iso);
-	// const now = new Date();
+	const now = new Date();
 
 	const diffMs = now - past;
-	if (isNaN(diffMs)) return "invalid date";
+	if (isNaN(diffMs) || diffMs < 0) return "invalid date";
 
 	const seconds = Math.floor(diffMs / 1000);
-
 	if (seconds < 60) return "just now";
 
 	const minutes = Math.floor(seconds / 60);
-	if (minutes < 60) return `${minutes} minute${minutes !== 1 ? "s" : ""} ago`;
+	if (minutes < 60) {
+		return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+	}
 
 	const hours = Math.floor(minutes / 60);
-	if (hours < 24) return `${hours} hour${hours !== 1 ? "s" : ""} ago`;
+	if (hours < 24) {
+		return `${hours} hour${hours === 1 ? "" : "s"} ago`;
+	}
 
 	const days = Math.floor(hours / 24);
-	if (days < 30) return `${days} day${days !== 1 ? "s" : ""} ago`;
+	if (days < 30) {
+		return `${days} day${days === 1 ? "" : "s"} ago`;
+	}
 
 	const months = Math.floor(days / 30);
-	if (months < 12) return `${months} month${months !== 1 ? "s" : ""} ago`;
+	if (months < 12) {
+		return `${months} month${months === 1 ? "" : "s"} ago`;
+	}
 
 	const years = Math.floor(months / 12);
-	return `${years} year${years !== 1 ? "s" : ""} ago`;
+	return `${years} year${years === 1 ? "" : "s"} ago`;
 }
 
 
@@ -187,9 +204,7 @@ function unmarshalJSON(path, container) {
 	})
 	.then((entries) => {
 		entries.forEach((entry) => {
-			const timeMsg = makeTimeString(entry.datetime);
-			const card = Card(entry.title, timeMsg, entry.activity);
-
+			const card = Card(entry.title, entry.datetime, entry.activity);
 			container.appendChild(card);
 		});
 	});
