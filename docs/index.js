@@ -6,6 +6,8 @@ const listen = (node, action, func) => { node.addEventListener(action, func); };
 // hooks
 const activityContainer = $("2026-box");
 
+const now = new Date();
+const cache = new Map();
 
 // Main function
 function main() {
@@ -14,6 +16,8 @@ function main() {
 
 	activityContainer.appendChild(month);
 	unmarshalJSON("./data/2026-03.json", activityBox);
+
+	console.log("[ DEBUG ] cache:", cache);
 }
 
 
@@ -41,7 +45,6 @@ function Card(title, timeMsg, activity) {
 	// create nested DOM nodes
 	const card = newElem("div");
 	card.classList.add("flex");
-	// card.classList.add("border-red");
 	card.classList.add("radius-5");
 	card.classList.add("m-10px");
 
@@ -95,36 +98,32 @@ function Card(title, timeMsg, activity) {
 }
 
 
-// helper functions
+// helper functions (titles & paths)
 function makeThumbnailPath(title) {
-	let path = "./assets/";
-
-	titleParts = normalizeTitle(title)
-		.split(" ")
-		.map((str) => {
-			return str.replace(/\p{P}/gu, "")
-		});
-
-	console.log(titleParts);
-	path += titleParts.join("-")
-
-	path += ".jpg";
+	let path = "./assets/" + makeSnakecase(title) + ".jpg";
 	return path;
 }
 
 function makePagePath(title) {
-	let path = "./pages/";
-
-	titleParts = normalizeTitle(title)
-		.split(" ")
-		.map((str) => {
-			return str.replace(/\p{P}/gu, "")
-		});
-
-	console.log(titleParts);
-	path += titleParts.join("-")
-
+	let path = "./pages/" + makeSnakecase(title);
 	return path;
+}
+
+function makeSnakecase(title) {
+	// avoid redoing work
+	if (cache.has(title)) {
+		return cache.get(title);
+	}
+
+	const normalized = normalizeTitle(title)
+		.split(" ")
+		.map(
+			(str) => { return str.replace(/\p{P}/gu, ""); }
+		)
+		.join("-");
+	
+	cache.set(title, normalized);
+	return normalized;
 }
 
 function normalizeTitle(title) {
@@ -136,17 +135,28 @@ function normalizeTitle(title) {
 	return title;
 }
 
+
+// helper functions (time)
+function makeTimeString(timeStr) {
+	console.log(now.toString());
+	console.log(timeStr);
+	return timeStr;
+}
+
+
+// helper functions (json wrangling)
 function unmarshalJSON(path, container) {
 	fetch(path)
 	.then((result) => {
 		const jsonResult = result.json();
-		console.log("json result:", jsonResult);
 
 		return jsonResult;
 	})
 	.then((entries) => {
 		entries.forEach((entry) => {
-			const card = Card(entry.title, entry.datetime, entry.activity);
+			const timeMsg = makeTimeString(entry.datetime);
+			const card = Card(entry.title, timeMsg, entry.activity);
+
 			container.appendChild(card);
 		});
 	});
