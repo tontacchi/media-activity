@@ -12,6 +12,7 @@ const cache = new Map();
 // constants: time
 const now = new Date();
 
+
 // Main function
 function main() {
 	const month = Month("March");
@@ -33,8 +34,7 @@ function Month(month) {
 	header.textContent = month;
 
 	const grid = newElem("div");
-	grid.classList.add("grid");
-	grid.classList.add("grid-cols-2");
+	grid.classList.add("grid", "grid-cols-1", "lg:grid-cols-2");
 
 	monthContainer.appendChild(header);
 	monthContainer.appendChild(grid);
