@@ -69,7 +69,7 @@ a.text-mint { color: #98FF98; }
 
 /* grid */
 .grid { display: grid; }
-.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr));; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 
 /* object fit */
 .object-contain { object-fit: contain; }
@@ -129,3 +129,15 @@ a.text-mint { color: #98FF98; }
 	background: rgba(0,0,0,0.5);
 }
 
+
+
+/* -------------------------------------------------------------------------- */
+/* Responsive Design                                                          */
+/* -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+	.md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+	.lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
