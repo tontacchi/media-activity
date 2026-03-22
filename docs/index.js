@@ -51,6 +51,8 @@ function Card(title, timestamp, activity) {
 	card.classList.add("radius-5");
 	card.classList.add("m-10px");
 
+	card.classList.add("border-red");
+
 	// frosted glass cards
 	// card.setAttribute("style", "background: rgb(0 0 0 / 0.7);");
 

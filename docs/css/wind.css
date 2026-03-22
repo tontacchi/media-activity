@@ -6,7 +6,7 @@ html, body {
 }
 
 :root {
-	--thumb-width:  120px;
+	--thumb-width:  100px;
 	--thumb-height: calc(var(--thumb-width) * 1.5);
 }
 
@@ -92,8 +92,11 @@ a.text-mint { color: #98FF98; }
 	width:  var(--thumb-width);
 	height: var(--thumb-height);
 	margin: 10px;
-	border-radius: 5px;
 	flex: 0 0 var(--thumb-width);
+}
+
+.thumbnail img {
+	border-radius: 10px;
 }
 
 
