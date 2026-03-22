@@ -47,9 +47,8 @@ function Card(title, timestamp, activity) {
 
 	// outer shell card
 	const card = newElem("div");
-	card.classList.add("flex");
-	card.classList.add("radius-5");
-	card.classList.add("m-10px");
+	card.classList.add("flex", "radius-5", "m-10px");
+	card.classList.add("transform", "hover:-translate-y-1", "duration-200");
 
 	card.classList.add("border-red");
 
