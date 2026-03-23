@@ -159,7 +159,7 @@ function timeAgo(timestamp) {
 	// normalize: yyyy-mm-dd-hh-mm-ss → ISO (UTC)
 	const iso = timestamp.replace(
 		/^(\d{4}-\d{2}-\d{2})-(\d{2})-(\d{2})-(\d{2})$/,
-		"$1T$2:$3:$4Z"
+		"$1T$2:$3:$4"
 	);
 
 	const past = new Date(iso);
