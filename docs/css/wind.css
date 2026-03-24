@@ -69,6 +69,15 @@ a.text-mint { color: #98FF98; }
 .text-slate-400 { color: oklch(70.4% 0.04 256.788); }
 /* .text-slate-500 { color: oklch(55.4% 0.046 257.417); } */
 
+
+.text-right { text-align: right; }
+
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-break-spaces { white-space: break-spaces; }
+
+/* display */
+.block { display: block; }
+
 /* flexbox */
 .flex { display: flex; }
 
@@ -80,8 +89,12 @@ a.text-mint { color: #98FF98; }
 /* flex item */
 .flex-1 { flex: 1 1 0% }
 .flex-8 { flex: 8 1 0% }
+.flex-10 { flex: 10 1 0% }
+.flex-25 { flex: 25 1 0% }
 .flex-15 { flex: 15 1 0%; }
 .flex-70 { flex: 70 1 0%; }
+
+.shrink-0 { flex-shrink: 0; }
 
 /* grid */
 .grid { display: grid; }

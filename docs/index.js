@@ -71,9 +71,7 @@ function Card(title, timestamp, activity) {
 
 	// text description body section
 	const center = newElem("div");
-	center.classList.add("flex-1");
-	center.classList.add("flex");
-	center.classList.add("items-center");
+	center.classList.add("flex-25", "flex", "items-center");
 
 	const a = newElem("a");
 	a.setAttribute("href", makePagePath(title));
@@ -89,9 +87,12 @@ function Card(title, timestamp, activity) {
 	const timeAgoMsg = makeTimeString(timestamp);
 
 	const timeBox = newElem("div");
+	timeBox.classList.add("flex-10", "whitespace-break-spaces", "text-right");
 
 	const time = newElem("p");
-	time.classList.add("m-10px", "text-xs", "text-slate-400");
+	time.classList.add("block");
+	time.classList.add("m-10px");
+	time.classList.add("text-xs", "text-slate-400", "wrap-anywhere");
 	time.textContent = timeAgoMsg;
 	time.setAttribute("title", timestamp);
 
