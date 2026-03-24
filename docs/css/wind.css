@@ -155,7 +155,7 @@ a.text-mint { color: #98FF98; }
 }
 
 .hover\:-translate-y-1:hover {
-	--tw-translate-y: -0.25rem;
+	--tw-translate-y: -0.5rem;
 	transform: translate(
 		var(--tw-translate-x),
 		var(--tw-translate-y)
