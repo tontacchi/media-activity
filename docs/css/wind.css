@@ -20,11 +20,12 @@ html, body {
 	--tw-scale-y: 1;
 }
 
-/* body { */
-/* 	background-image: url("../assets/columbina-sandrone.jpg"); */
-/* 	background-repeat: no-repeat; */
-/* 	background-size: 100% auto; */
-/* } */
+body {
+	/* background-image: url("../assets/sandbina.jpg"); */
+	background-image: url("../assets/aobear.jpg");
+	background-repeat: repeat-y;
+	background-size: 100% auto;
+}
 
 
 /* -------------------------------------------------------------------------- */
