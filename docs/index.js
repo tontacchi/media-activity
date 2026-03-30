@@ -94,7 +94,8 @@ function Card(title, timestamp, activity) {
 	time.classList.add("m-10px");
 	time.classList.add("text-xs", "text-slate-400", "wrap-anywhere");
 	time.textContent = timeAgoMsg;
-	time.setAttribute("title", timestamp);
+
+	time.setAttribute("title", makeTitleTimestamp(timestamp));
 
 
 	// assemble Card component
@@ -194,6 +195,12 @@ function timeAgo(timestamp) {
 
 	const years = Math.floor(months / 12);
 	return `${years} year${years === 1 ? "" : "s"} ago`;
+}
+
+function makeTitleTimestamp(timestamp) {
+	// format: yyyy-mm-dd-hh-mm-ss
+	const [yyyy, Mm, dd, hh, mm, ss] = timestamp.split("-");
+	return `${yyyy}-${Mm}-${dd} ${hh}:${mm}:${ss}`;
 }
 
 
