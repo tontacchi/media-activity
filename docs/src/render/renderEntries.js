@@ -28,7 +28,7 @@ function getOrCreateYearBox(root, year) {
 
 	root.appendChild(yearContainer);
 
-	return monthList;
+	return yearContainer;
 }
 
 function getOrCreateMonthGrid(yearBox, year, monthNumber, monthName) {

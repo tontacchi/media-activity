@@ -8,11 +8,12 @@ export function Year(year) {
 	header.classList.add("text-lg");
 	header.textContent = year;
 
-	const monthList = newElem("div");
-	monthList.classList.add("year-months");
+	// const monthList = newElem("div");
+	// monthList.id = `${year}-months`;
 
 	yearContainer.appendChild(header);
-	yearContainer.appendChild(monthList);
+	// yearContainer.appendChild(monthList);
 
-	return { yearContainer, monthList };
+	// return { yearContainer, monthList };
+	return { yearContainer };
 }
