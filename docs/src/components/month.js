@@ -1,11 +1,12 @@
 import { newElem } from "../dom.js";
 
-export function Month(month) {
-	const monthContainer = newElem("div");
+export function Month(monthName) {
+	const monthContainer = newElem("section");
+	monthContainer.classList.add("month");
 
 	const header = newElem("h2");
 	header.classList.add("text-md");
-	header.textContent = month;
+	header.textContent = monthName;
 
 	const grid = newElem("div");
 	grid.classList.add("grid", "grid-cols-1", "lg:grid-cols-2");
@@ -15,4 +16,3 @@ export function Month(month) {
 
 	return { monthContainer, grid };
 }
-

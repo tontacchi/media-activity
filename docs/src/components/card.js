@@ -1,8 +1,13 @@
 import { newElem } from "../dom.js";
 
-export function Card(
-	{ title, activity, pagePath, thumbnailPath, timeAgoMsg, titleTimestamp }
-) {
+export function Card({
+	title,
+	activity,
+	pagePath,
+	thumbnailPath,
+	timeAgoMsg,
+	titleTimestamp,
+}) {
 	const card = newElem("div");
 	card.classList.add("flex", "rounded-5", "m-10px");
 	card.classList.add("transform", "hover:-translate-y-1", "duration-200");
