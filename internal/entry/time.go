@@ -22,3 +22,15 @@ func MakeTimestamp() string {
 	return timestamp
 }
 
+func GetYearMonth() string {
+	now := time.Now()
+
+	timestamp := fmt.Sprintf(
+		"%004d-%02d",
+		now.Year(),
+		int(now.Month()),
+	)
+
+	return timestamp
+}
+

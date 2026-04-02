@@ -21,7 +21,10 @@ const WritePerms = 0644
 
 
 func main() {
-	const path = "./docs/data/2026-03.json"
+	path := fmt.Sprintf(
+		"./docs/data/%s.json",
+		entry.GetYearMonth(),
+	)
 
 	entries := prependEntry(makeEntry(), readJSON(path))	
 
