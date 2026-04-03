@@ -70,7 +70,7 @@ func prependEntry(new Entry, oldEntries []Entry) []Entry {
 }
 
 func writeEntries(entries []Entry, path string) {
-	jsonStr, err := json.MarshalIndent(entries, "", "    ")
+	jsonStr, err := json.MarshalIndent(entries, "", "  ")
 	if err != nil { return }
 
 	fmt.Println("writeEntries: writing to", path)
