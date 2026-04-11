@@ -23,9 +23,18 @@ export function makeSnakecase(title) {
 }
 
 export function normalizeTitle(title) {
-	return title
-		.toLowerCase()
-		.replaceAll("-", " ")
-		.replaceAll("/", " ");
+	const charsRemove = [
+		"-", "/", "+", "(", ")", "[", "|", "<", ">", "☆", "_",
+	];
+
+	title = title.toLowerCase();
+
+	for (let i = 0; i < charsRemove.length; i++) {
+		title = title.replaceAll(charsRemove[i], " ");
+	}
+	title = title.trim();
+
+	if (title.startsWith("super")) { console.log(title); }
+	return title;
 }
 
