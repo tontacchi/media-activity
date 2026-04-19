@@ -14,7 +14,7 @@ export function Card({
 	card.classList.add("bg-dim");
 
 	const thumbnail = newElem("div");
-	thumbnail.classList.add("thumbnail");
+	thumbnail.classList.add("thumbnail", "sm:thumbnail");
 
 	const thumbnailHyperlink = newElem("a");
 	thumbnailHyperlink.href = pagePath;

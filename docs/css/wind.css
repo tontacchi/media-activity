@@ -10,6 +10,9 @@ html, body {
 	--thumb-width:  90px;
 	--thumb-height: calc(var(--thumb-width) * 1.5);
 
+	--thumb-width-sm: 45px;
+	--thumb-height-sm: calc(var(--thumb-width-sm) * 1.5);
+
 	/* translation variables from tailwind */
 	--tw-translate-x: 0;
 	--tw-translate-y: 0;
@@ -114,10 +117,10 @@ a.text-mint { color: #98FF98; }
 
 /* component thumbnail */
 .thumbnail {
-	width:  var(--thumb-width);
-	height: var(--thumb-height);
+	width:  var(--thumb-width-sm);
+	height: var(--thumb-height-sm);
 	margin: 10px;
-	flex: 0 0 var(--thumb-width);
+	flex: 0 0 var(--thumb-width-sm);
 }
 
 .thumbnail img {
@@ -213,6 +216,13 @@ a.text-mint { color: #98FF98; }
 	.sm\:block { display: block; }
 	.sm\:mx-10pct { margin: 0 10vw; }
 	.sm\:border-red { border: 2px solid red; }
+
+	.sm\:thumbnail {
+		width:  var(--thumb-width);
+		height: var(--thumb-height);
+		margin: 10px;
+		flex: 0 0 var(--thumb-width);
+	}
 }
 
 @media (min-width: 768px) {
