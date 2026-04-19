@@ -10,7 +10,7 @@ html, body {
 	--thumb-width:  90px;
 	--thumb-height: calc(var(--thumb-width) * 1.5);
 
-	--thumb-width-sm: 45px;
+	--thumb-width-sm: 55px;
 	--thumb-height-sm: calc(var(--thumb-width-sm) * 1.5);
 
 	/* translation variables from tailwind */
@@ -215,7 +215,7 @@ a.text-mint { color: #98FF98; }
 @media (min-width: 640px) {
 	.sm\:block { display: block; }
 	.sm\:mx-10pct { margin: 0 10vw; }
-	.sm\:border-red { border: 2px solid red; }
+	/* .sm\:border-red { border: 2px solid red; } */
 
 	.sm\:thumbnail {
 		width:  var(--thumb-width);
@@ -228,7 +228,7 @@ a.text-mint { color: #98FF98; }
 @media (min-width: 768px) {
 	.md\:block { diplay: block; }
 	.md\:mx-15pct { margin: 0 15vw; }
-	.md\:border-cyan { border: 2px solid cyan; }
+	/* .md\:border-cyan { border: 2px solid cyan; } */
 	.md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
