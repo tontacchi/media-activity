@@ -1,4 +1,4 @@
-import { newElem } from "../dom.js";
+import { newElem, attr } from "../dom.js";
 
 export function Month(monthName) {
 	const monthContainer = newElem("section");
