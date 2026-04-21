@@ -209,17 +209,26 @@ a.text-mint { color: #98FF98; }
 	);
 }
 
-.duration-200 {
-	transition-duration: 200ms;
-}
-
 
 .hidden { display: none; }
 .block  { display: block; }
 
 
+.opacity-0 { opacity: 0; }
+
+.duration-200  { transition-duration: 200ms; }
+.duration-300  { transition-duration: 300ms; }
+.duration-test { transition-duration: 1.5s; }
+
+.transition-opacity {
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	/* transition-duration: 300ms; */
+}
+
 .scroll-auto   { scroll-behavior: auto; }
 .scroll-smooth { scroll-behavior: smooth; }
+
 
 /* -------------------------------------------------------------------------- */
 /* Responsive Design                                                          */
