@@ -142,6 +142,7 @@ a.text-mint { color: #98FF98; }
 	border-radius: 8px;
 }
 
+.select-none { user-select: none; }
 
 /* -------------------------------------------------------------------------- */
 /* Dark Mode                                                                  */

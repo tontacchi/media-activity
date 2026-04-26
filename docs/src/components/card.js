@@ -14,7 +14,7 @@ export function Card({
 	card.classList.add("bg-dim");
 
 	const thumbnail = newElem("div");
-	thumbnail.classList.add("thumbnail", "sm:thumbnail");
+	thumbnail.classList.add("thumbnail", "sm:thumbnail", "select-none");
 
 	const thumbnailHyperlink = newElem("a");
 	thumbnailHyperlink.href = pagePath;
@@ -40,7 +40,7 @@ export function Card({
 	timeBox.classList.add("flex-10", "whitespace-break-spaces", "text-right");
 
 	const time = newElem("p");
-	time.classList.add("block", "m-10px", "text-xs", "text-slate-400", "wrap-anywhere");
+	time.classList.add("block", "m-10px", "text-xs", "text-slate-400", "wrap-anywhere", "select-none");
 	time.textContent = timeAgoMsg;
 	time.title = titleTimestamp;
 
