@@ -23,7 +23,8 @@ html, body {
 	--tw-scale-y: 1;
 }
 
-body {
+/* body { */
+#app {
 	/* background-image: url("../assets/sandbina.jpg"); */
 	background-image: url("../assets/aobear.jpg");
 	background-repeat: repeat-y;
