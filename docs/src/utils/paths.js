@@ -24,7 +24,7 @@ export function makeSnakecase(title) {
 
 export function normalizeTitle(title) {
 	const charsRemove = [
-		"-", "/", "+", "(", ")", "[", "|", "<", ">", "☆", "_",
+		"-", "/", "+", "(", ")", "[", "|", "<", ">", "☆", "_", " & ",
 	];
 
 	title = title.toLowerCase();
