@@ -1,0 +1,22 @@
+/*――[ Thumbnail ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――*/
+.thumbnail {
+	width:  var(--thumb-width-sm);
+	height: var(--thumb-height-sm);
+	margin: 10px;
+	flex: 0 0 var(--thumb-width-sm);
+}
+
+.thumbnail img {
+	border-radius: 10px;
+}
+
+
+/*――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――*/
+/* Miscellaneous                                                              */
+/*――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――*/
+
+.bg-dim {
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 8px;
+}
+
